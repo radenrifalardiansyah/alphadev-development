@@ -1,0 +1,15 @@
+//Development Setting
+D:\Xampp\apache\conf\extra\httpd-vhosts.cong
+<VirtualHost *:80>
+	ServerName alphanetdev.com
+	ServerAlias www.alphanetdev.com
+	DocumentRoot "D:/XAMPP/htdocs/alphanet-development"
+	
+	<Directory D:/XAMPP/htdocs/alphanet-development>
+		Order allow,deny
+		Allow from all
+	</Directory>
+</VirtualHost>
+
+C:\\Windows\System32\drivers\etc\hosts
+127.0.0.1	alphanetdev.com www.alphanetdev.com http://alphanetdev.com

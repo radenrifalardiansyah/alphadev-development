@@ -1,0 +1,634 @@
+/** Tree Table Styles ===================================== **/
+.tree-table{
+    content: " ";
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    display: table;
+    clear: both;
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+}
+
+.tree-table li {
+    list-style-type: none;
+    padding: 20px 0;
+    position: relative;
+    text-align: center;
+    transition: all 0.5s ease 0s;
+    display: block;
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-sizing: border-box;
+}
+
+.tree-table ul {
+    padding: 20px 0 0;
+    margin: 0;
+    position: relative;
+    transition: all 0.5s ease 0s;
+}
+
+.tree-table ul li {
+    float: left;
+    list-style-type: none;
+    padding: 20px 0;
+    position: relative;
+    text-align: center;
+    transition: all 0.5s ease 0s;
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-sizing: border-box;
+    width: 50%;
+}
+
+.tree-table ul li:before,
+.tree-table ul li:after {
+    border-top: 1px solid #ccc;
+    content: "";
+    height: 20px;
+    position: absolute;
+    right: 50%;
+    top: 0;
+    width: 50%;
+}
+
+.tree-table ul li:after {
+    border-left: 1px solid #ccc;
+    left: 50%;
+    right: auto;
+}
+
+.tree-table ul li:only-child:after,
+.tree-table ul li:only-child:before {
+    display: none;
+}
+
+.tree-table ul li:only-child {
+    padding-top: 0;
+}
+
+.tree-table ul li:first-child:before,
+.tree-table ul li:last-child:after {
+    border: 1px none;
+}
+
+.tree-table ul li:last-child:before {
+    border-right: 1px solid #ccc;
+}
+
+.tree-table ul li:first-child:after {
+    border-radius: 0;
+}
+
+.tree-table ul:before {
+    border-left: 1px solid #ccc;
+    content: "";
+    height: 20px;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+
+.tree-table ul li a:hover,
+.tree-table ul li a:hover + ul li a div,
+.tree-table ul li a:hover + ul li div {
+    border-color: #2196f3;
+}
+
+.tree-table ul li div:hover,
+.tree-table ul li div:hover + ul li div,
+.tree-table li div:hover + ul li div {
+    border-color: #2196f3;
+}
+
+.tree-table ul li a:hover + ul li:after,
+.tree-table ul li a:hover + ul li:before,
+.tree-table ul li a:hover + ul:before,
+.tree-table ul li a:hover + ul ul:before {
+    border-color: #2196f3;
+}
+
+.tree-table li div:hover + ul li:after,
+.tree-table li div:hover + ul li:before,
+.tree-table li div:hover + ul:before,
+.tree-table li div:hover + ul ul:before,
+.tree-table ul li div:hover + ul li:after,
+.tree-table ul li div:hover + ul li:before,
+.tree-table ul li div:hover + ul:before,
+.tree-table ul li div:hover + ul ul:before {
+    border-color: #2196f3;
+}
+
+.tree-table a{
+    display: inline-block;
+}
+
+.tree-table a:hover, .tree-table a.add-user:hover{
+    text-decoration: none !important;
+}
+
+.tree-table a.add-user:hover .photo-wrapper{
+    border-color: #2196f3 !important;
+}
+
+.tree-table a:hover .photo-wrapper{
+    border-color: #2196f3 !important;
+}
+
+.photo-me{
+    background-color: transparent;
+    color: black;
+    width: 160px !important;
+}
+
+/* Package color */
+.basic{
+    background-color: #5e72e4 !important;
+    color: white;
+}
+.user-pack{
+    background-color: #efc6b9 !important;
+    color: black;
+}
+.silver{
+    background-color: #d6d5d4 !important;
+    color: black;
+}
+.gold{
+    background-color: #ffc107 !important;
+    color: black;
+}
+.platinum{
+    background-color: #00dbde !important;
+    color: white;
+}
+.diamond{
+    background-color: #03a9f4 !important;
+    color: white;
+}
+.premium{
+    background-color: #2196f3 !important;
+    color: white;
+    border-radius: 50px;
+}
+.admin{
+    background: -webkit-linear-gradient(to right, #832ad4, #1683e0);
+    background: linear-gradient(to right, #832ad4, #1683e0);
+    color: white;
+}
+
+/*** Label color ***/
+.label-basic    { background-color: #5e72e4 !important; }
+.label-user     { background-color: #efc6b9 !important; color: black; }
+.label-silver   { background-color: #d6d5d4 !important; color: black; }
+.label-gold     { background-color: #ffc107 !important; color: black; }
+.label-platinum { background-color: #00dbde !important; }
+.label-diamond  { background-color: #03a9f4 !important; }
+.label-admin    { background-color: #2196f3 !important; }
+
+.photo-wrapper{
+    background: none repeat scroll 0 0 #fff;
+    border: 2px double #FFFFFF;
+    margin: 0 auto;
+    width: 150px;
+    /*min-height: 170px;*/
+    padding: 2px 2px 5px;
+    position: relative;
+
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition:    all 0.3s ease-in-out;
+    -o-transition:      all 0.3s ease-in-out;
+    -ms-transition:     all 0.3s ease-in-out;
+    transition:         all 0.3s ease-in-out;
+}
+
+.child-1 .photo-wrapper{
+    background: none repeat scroll 0 0 #fff;
+    border: 2px double #FFFFFF;
+    margin: 0 auto;
+    width: 160px;
+    min-height: 180px;
+    padding: 2px 2px 5px;
+    position: relative;
+
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition:    all 0.3s ease-in-out;
+    -o-transition:      all 0.3s ease-in-out;
+    -ms-transition:     all 0.3s ease-in-out;
+    transition:         all 0.3s ease-in-out;
+}
+
+.child-2 .photo-wrapper{
+    background: none repeat scroll 0 0 #fff;
+    border: 2px double #FFFFFF;
+    margin: 0 auto;
+    width: 140px;
+    min-height: 180px;
+    padding: 2px 2px 5px;
+    position: relative;
+
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition:    all 0.3s ease-in-out;
+    -o-transition:      all 0.3s ease-in-out;
+    -ms-transition:     all 0.3s ease-in-out;
+    transition:         all 0.3s ease-in-out;
+}
+
+.child-3 .photo-wrapper{
+    background: none repeat scroll 0 0 #fff;
+    border: 2px double #FFFFFF;
+    margin: 0 auto;
+    width: 110px;
+    min-height: 160px;
+    padding: 2px 2px 5px;
+    position: relative;
+
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition:    all 0.3s ease-in-out;
+    -o-transition:      all 0.3s ease-in-out;
+    -ms-transition:     all 0.3s ease-in-out;
+    transition:         all 0.3s ease-in-out;
+}
+
+@media (max-width:768px) {
+    .child-3 .photo-wrapper{
+        width: 80px;
+    }
+}
+
+@media (max-width:575.98px) {
+    .child-2 .photo-wrapper{
+        width: 90px;
+    }
+    .child-3 {
+        display: none;
+        transition: all .15s cubic-bezier(.68,-.55,.265,1.55);
+        transform: translateX(-150%);
+    }
+}
+
+.photo-content{
+    width: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+@media (max-width:768px) {
+    .child-2 .photo-content{
+        width: 80px;
+    }
+    .child-3 .photo-content{
+        width: 60px;
+    }
+}
+
+.photo-wrapper-bronze {
+    border-color: sandybrown;
+}
+.photo-wrapper-silver .photo-name{
+    background-color: silver;
+}
+.photo-wrapper-gold .photo-name{
+    background-color: gold;
+}
+.photo-wrapper-platinum .photo-name{
+    background-color: rgba(129,105,91,0.06);
+    border-color: black;
+    border: solid;
+}
+
+.photo-wrapper.normal .photo-name2{
+    background-color: #FFFFFF;
+}
+
+.photo-wrapper.leader {
+    border-color: #FFFFFF;
+}
+.photo-wrapper.leader .photo-name{
+    background-color: #F39C12;
+}
+.photo-wrapper.normal .photo-name2{
+    background-color: #FFFFFF;
+}
+
+.photo-image{
+    width: 100%;
+    height: auto;
+    margin-bottom: 2px;
+    position: relative;
+}
+
+.photo-image .lock-qualified{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 50%;
+    top: 45px;
+    margin-left: -10px;
+    background: url("../images/lock-icon.png") no-repeat center center;
+}
+
+.photo-image img{
+    width: 80%;
+    height: auto;
+}
+
+.photo-name-available{
+    width: 100%;
+    text-transform: uppercase;
+    background-color: #03a9f4;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 10px;
+    padding: 3px 0;
+    margin-bottom: 2px;
+    min-height: 15px;
+}
+
+.photo-name-notavailable{
+    width: 100%;
+    text-transform: uppercase;
+    background-color: #707071;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 10px;
+    padding: 3px 0;
+    margin-bottom: 2px;
+    min-height: 15px;
+}
+.photo-name .photo-me{
+    background-color: #3fc1fe;
+}
+
+
+.photo-name-available2{
+    background-color: #FFFFFF;
+}
+.photo-name-notavailable2{
+    background-color: #FFFFFF;
+}
+
+.photo-name2,
+.photo-name-available2,
+.photo-name-notavailable2{
+    width: 100%;
+    text-transform: uppercase;
+    color: #000;
+    text-align: center;
+    font-size: 10px;
+    padding: 3px;
+    margin-bottom: 2px;
+    line-height: 12px;
+    height: 30px;
+    position: relative;
+}
+
+.photo-name2 span,
+.photo-name-available2 span,
+.photo-name-notavailable2 span {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.photo-name {
+    width: 100%;
+    text-align: center;
+    padding: 2px 0px 1px 0px;
+    position: relative;
+    /*border-radius: 6px;*/
+    font-size: 12px;
+    min-height: 15px;
+    /*height: 20px;*/
+}
+
+.phone-node{
+    height: 100%;
+    font-weight: bold;
+    font-size: 10px;
+    /*width: 100%;*/
+    margin: 0 -10% 0 -10%;
+}
+
+.phone-node .node-one, .phone-node .node-two{
+    height: 100%;
+    text-align: center;
+    padding: 0;
+}
+
+.phone-node .node-one{
+    margin: 0;
+    border-right: 1px solid #CCC;
+}
+.phone-node .node-two{
+    margin: 0;
+    border-left: 1px solid #CCC;
+}
+
+
+/** Tree Board Table Styles ===================================== **/
+.tree-board-table{
+    content: " ";
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    display: table;
+    clear: both;
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-sizing: border-box;
+    max-width: 99%;
+    width: 99%;
+}
+
+.tree-board-table li {
+    list-style-type: none;
+    padding: 20px 0;
+    position: relative;
+    text-align: center;
+    transition: all 0.5s ease 0s;
+    display: block;
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-sizing: border-box;
+}
+
+.tree-board-table ul {
+    padding: 20px 0 0 1%;
+    margin: 0;
+    position: relative;
+    transition: all 0.5s ease 0s;
+}
+
+.tree-board-table ul li {
+    float: left;
+    list-style-type: none;
+    padding: 20px 0;
+    position: relative;
+    text-align: center;
+    transition: all 0.5s ease 0s;
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-sizing: border-box;
+    width: 33%;
+}
+
+.tree-board-table ul li:before,
+.tree-board-table ul li:after {
+    border-top: 1px solid #ccc;
+    content: "";
+    height: 20px;
+    position: absolute;
+    right: 50%;
+    top: 0;
+    width: 50%;
+}
+
+.tree-board-table ul li:after {
+    border-left: 1px solid #ccc;
+    left: 50%;
+    right: auto;
+}
+
+.tree-board-table ul li:only-child:after,
+.tree-board-table ul li:only-child:before {
+    display: none;
+}
+
+.tree-board-table ul li:only-child {
+    padding-top: 0;
+}
+
+.tree-board-table ul li:first-child:before,
+.tree-board-table ul li:last-child:after {
+    border: 1px none;
+}
+
+.tree-board-table ul li:last-child:before {
+    border-right: 1px solid #ccc;
+}
+
+.tree-board-table ul li:first-child:after {
+    border-radius: 0;
+}
+
+.tree-board-table ul:before {
+    border-left: 1px solid #ccc;
+    content: "";
+    height: 20px;
+    left: 50%;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+
+.tree-board-table ul li a:hover,
+.tree-board-table ul li a:hover + ul li a div,
+.tree-board-table ul li a:hover + ul li div {
+    border-color: #2196f3;
+}
+
+.tree-board-table ul li div:hover,
+.tree-board-table ul li div:hover + ul li div,
+.tree-board-table li div:hover + ul li div {
+    border-color: #2196f3;
+}
+
+.tree-board-table ul li a:hover + ul li:after,
+.tree-board-table ul li a:hover + ul li:before,
+.tree-board-table ul li a:hover + ul:before,
+.tree-board-table ul li a:hover + ul ul:before {
+    border-color: #2196f3;
+}
+
+.tree-board-table li div:hover + ul li:after,
+.tree-board-table li div:hover + ul li:before,
+.tree-board-table li div:hover + ul:before,
+.tree-board-table li div:hover + ul ul:before,
+.tree-board-table ul li div:hover + ul li:after,
+.tree-board-table ul li div:hover + ul li:before,
+.tree-board-table ul li div:hover + ul:before,
+.tree-board-table ul li div:hover + ul ul:before {
+    border-color: #2196f3;
+}
+
+.tree-board-table a{
+    display: inline-block;
+}
+
+.tree-board-table a:hover, .tree-board-table a.add-user:hover{
+    text-decoration: none !important;
+}
+
+.tree-board-table a.add-user:hover .photo-wrapper-board{
+    border-color: #2196f3 !important;
+}
+
+.tree-board-table a:hover .photo-wrapper-board{
+    border-color: #2196f3 !important;
+}
+
+.photo-wrapper-board{
+    background: none repeat scroll 0 0 #fff;
+    border: 2px double #FFFFFF;
+    margin: 0 auto;
+    width: 100px;
+    /*min-height: 120px;*/
+    padding: 2px;
+    position: relative;
+
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition:    all 0.3s ease-in-out;
+    -o-transition:      all 0.3s ease-in-out;
+    -ms-transition:     all 0.3s ease-in-out;
+    transition:         all 0.3s ease-in-out;
+}
+
+.child-1 .photo-wrapper-board{
+    background: none repeat scroll 0 0 #fff;
+    border: 2px double #FFFFFF;
+    margin: 0 auto;
+    width: 160px;
+    /*min-height: 120px;*/
+    padding: 2px;
+    position: relative;
+
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition:    all 0.3s ease-in-out;
+    -o-transition:      all 0.3s ease-in-out;
+    -ms-transition:     all 0.3s ease-in-out;
+    transition:         all 0.3s ease-in-out;
+}
+
+.child-2 .photo-wrapper-board{
+    background: none repeat scroll 0 0 #fff;
+    border: 2px double #FFFFFF;
+    margin: 0 auto;
+    width: 95px;
+    /*min-height: 120px;*/
+    padding: 2px;
+    position: relative;
+
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition:    all 0.3s ease-in-out;
+    -o-transition:      all 0.3s ease-in-out;
+    -ms-transition:     all 0.3s ease-in-out;
+    transition:         all 0.3s ease-in-out;
+}
+
+.photo-content-board{
+    width: 80px;
+    margin: 0 auto;
+    position: relative;
+}
